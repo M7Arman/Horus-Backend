@@ -4,6 +4,18 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="board_title_size">36sp</dimen>
     <dimen name="board_title_margin_top">10dp</dimen>
+    <dimen name="board_title_margin_bottom">10dp</dimen>
     <dimen name="board_section_margin_top">30dp</dimen>
-    <dimen name="mure_button_margin_right">15dp</dimen>
+    <dimen name="more_button_margin_right">15dp</dimen>
+    <dimen name="more_button_margin_top">10dp</dimen>
+    <dimen name="more_button_margin_bottom">10dp</dimen>
+    <dimen name="card_title_text_size">18sp</dimen>
+    <dimen name="label_text_size">20sp</dimen>
+    <dimen name="card_item_width">300dp</dimen>
+    <dimen name="card_item_height">150dp</dimen>
+    <dimen name="card_corner_radius">0dp</dimen>
+    <dimen name="card_margin_left">10dp</dimen>
+    <dimen name="card_margin_right">10dp</dimen>
+    <dimen name="card_margin_bottom">2dp</dimen>
+    <dimen name="card_margin_top">2dp</dimen>
 </resources>

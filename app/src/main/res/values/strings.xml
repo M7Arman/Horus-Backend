@@ -6,4 +6,7 @@
     <string name="places_title">Places</string>
     <string name="trips_title">Trips</string>
     <string name="more_button_text">More</string>
+    <string name="card_with_no_title">Untiteled</string>
+    <string name="card_label">Explore</string>
+    <string name="card_content_description">item card content</string>
 </resources>
