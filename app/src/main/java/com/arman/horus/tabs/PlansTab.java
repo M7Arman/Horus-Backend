@@ -12,7 +12,7 @@ public class PlansTab extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_board_tab, container, false);
+        return inflater.inflate(R.layout.tab_plans, container, false);
     }
 
 }

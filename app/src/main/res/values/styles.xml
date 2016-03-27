@@ -9,4 +9,34 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="board_title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/board_title_size</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginTop">@dimen/board_title_margin_top</item>
+    </style>
+
+    <style name="board_list_section">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <!--<item name="android:layout_height">wrap_content</item>-->
+        <item name="android:layout_height">240dp</item>
+        <item name="android:background">@color/colorSectionBg</item>
+        <item name="android:layout_marginTop">@dimen/board_section_margin_top</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="more_button">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/more_button_text</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@color/colorButton</item>
+        <item name="android:layout_gravity">end</item>
+        <item name="android:layout_marginRight">@dimen/mure_button_margin_right</item>
+    </style>
+
 </resources>

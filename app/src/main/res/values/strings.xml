@@ -2,5 +2,8 @@
     <string name="app_name">Horus</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="unimplemented">Unimplemented</string>
+    <string name="places_title">Places</string>
+    <string name="trips_title">Trips</string>
+    <string name="more_button_text">More</string>
 </resources>

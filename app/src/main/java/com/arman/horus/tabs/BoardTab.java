@@ -10,10 +10,9 @@ import com.arman.horus.R;
 
 public class BoardTab extends Fragment {
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_board_tab, container, false);
+        return inflater.inflate(R.layout.tab_board, container, false);
     }
 
 }
