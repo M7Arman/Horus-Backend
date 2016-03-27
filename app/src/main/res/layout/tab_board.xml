@@ -4,40 +4,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="2">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <LinearLayout
-            style="@style/board_list_section">
-
-            <TextView
-                android:text="@string/places_title"
-                style="@style/board_title"
-                />
-
-            <!--TODO: Add CardViews list for popular places-->
-            <!--TODO: Add More button to show list of places-->
-            <Button style="@style/more_button"/>
-
-        </LinearLayout>
-
-
-    <!--Trips section-->
-
-        <LinearLayout
-            style="@style/board_list_section">
-
-            <TextView
-                android:text="@string/trips_title"
-                style="@style/board_title"
-                />
-
-            <!--TODO: Add CardViews list for popular trips-->
-            <!--TODO: Add More button to show list of trips-->
-            <Button style="@style/more_button"/>
-
-        </LinearLayout>
+        <include layout="@layout/tab_board_places_list"></include>
+        <include layout="@layout/tab_board_trips_list"></include>
 
     </LinearLayout>
 </ScrollView>
