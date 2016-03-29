@@ -6,48 +6,34 @@
     card_view:cardCornerRadius="@dimen/card_corner_radius"
     card_view:cardElevation="@dimen/cardview_default_elevation">
 
-    <!-- TODO: Need to clean up -->
-
     <LinearLayout
         style="@style/clickable_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/card_title"
-            style="@style/Base.TextAppearance.AppCompat.Title"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginStart="10dp"
-            android:gravity="start"
-            android:hint="@string/card_with_no_title"
-            android:singleLine="true"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/card_title_text_size" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/card_title"
+                style="@style/card_item_title" />
+
+            <ImageView
+                android:id="@+id/icon"
+                style="@style/card_item_icon"/>
+
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/item_image"
-            android:layout_width="@dimen/card_item_width"
-            android:layout_height="@dimen/card_item_height"
-            android:contentDescription="@string/card_content_description"
-            android:scaleType="centerCrop"
-            android:src="@drawable/trip" />
+            style="@style/card_item_image" />
 
         <TextView
             android:id="@+id/item_bottom_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="2dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
-            android:gravity="end"
-            android:text="@string/card_label"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/label_text_size"
-            android:textStyle="bold" />
+            style="@style/card_item_label" />
 
     </LinearLayout>
 
