@@ -1,4 +1,4 @@
-package com.arman.horus;
+package com.arman.horus.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -8,7 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.arman.horus.adapter.TabPagerAdapter;
+import com.arman.horus.R;
+import com.arman.horus.adapters.TabPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 

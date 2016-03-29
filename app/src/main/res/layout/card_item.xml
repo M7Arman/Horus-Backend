@@ -7,7 +7,6 @@
     card_view:cardElevation="@dimen/cardview_default_elevation">
 
     <LinearLayout
-        style="@style/clickable_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -22,17 +21,17 @@
                 style="@style/card_item_title" />
 
             <ImageView
-                android:id="@+id/icon"
+                android:id="@+id/card_icon"
                 style="@style/card_item_icon"/>
 
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/item_image"
+            android:id="@+id/card_image"
             style="@style/card_item_image" />
 
         <TextView
-            android:id="@+id/item_bottom_text"
+            android:id="@+id/card_label"
             style="@style/card_item_label" />
 
     </LinearLayout>

@@ -7,9 +7,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.arman.horus.R;
-import com.arman.horus.adapter.CardItemsAdapter;
+import com.arman.horus.adapters.CardItemsAdapter;
 import com.arman.horus.models.CardItem;
 
 import java.util.List;
@@ -35,7 +36,7 @@ public class BoardTab extends Fragment {
 
         placesRecyclerView.setLayoutManager(layoutManager);
         List<CardItem> cardItems = CardItem.generateItems();
-        RecyclerView.Adapter cardsAdapter = new CardItemsAdapter(cardItems);
+        RecyclerView.Adapter cardsAdapter = new CardItemsAdapter(cardItems, new OnCardClickListener());
         placesRecyclerView.setAdapter(cardsAdapter);
     }
 
@@ -48,8 +49,16 @@ public class BoardTab extends Fragment {
 
         tripsRecyclerView.setLayoutManager(layoutManager);
         List<CardItem> cardItems = CardItem.generateItems();
-        RecyclerView.Adapter cardsAdapter = new CardItemsAdapter(cardItems);
+        RecyclerView.Adapter cardsAdapter = new CardItemsAdapter(cardItems, new OnCardClickListener());
         tripsRecyclerView.setAdapter(cardsAdapter);
     }
 
+    public class OnCardClickListener implements CardItemsAdapter.OnItemClickListener {
+
+        @Override
+        public void onItemClick(CardItem item) {
+            Toast.makeText(getContext(), item.getTitle(), Toast.LENGTH_LONG).show();
+            // TODO: create a new activity passing card type(event or trips)
+        }
+    }
 }
