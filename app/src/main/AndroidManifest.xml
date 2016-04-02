@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.ItemDetailActivity"
+            android:name=".activities.TripDetailActivity"
             android:label="@string/title_activity_item_detail2"
             android:parentActivityName=".activities.MainActivity"
             android:theme="@style/AppTheme">

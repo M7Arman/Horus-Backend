@@ -56,9 +56,9 @@ public class CardItem {
 
     public static List<CardItem> generateItems() {
         List<CardItem> cards = new ArrayList<>();
-        cards.add(new CardItem("A title for card", R.drawable.trip, android.R.drawable.ic_lock_idle_lock, "card_1"));
-        cards.add(new CardItem("This item has too very-very long and ugly title", R.drawable.trip, android.R.drawable.stat_sys_speakerphone, "card_2"));
-        cards.add(new CardItem("Another long title for the third card", R.drawable.trip, android.R.drawable.btn_dialog, "card_3"));
+        cards.add(new CardItem("A title for card", R.drawable.trip, android.R.drawable.ic_lock_idle_lock, "item_1"));
+        cards.add(new CardItem("This item has too very-very long and ugly title", R.drawable.trip, android.R.drawable.stat_sys_speakerphone, "item_2"));
+        cards.add(new CardItem("Another long title for the third card", R.drawable.trip, android.R.drawable.btn_dialog, "item_3"));
         return cards;
     }
 }
