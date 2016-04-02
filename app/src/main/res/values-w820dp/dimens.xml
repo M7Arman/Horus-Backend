@@ -5,4 +5,5 @@
     <dimen name="activity_horizontal_margin">64dp</dimen>
     <dimen name="card_item_width">400dp</dimen>
     <dimen name="card_item_height">250dp</dimen>
+    <dimen name="item_detail_max_image_height">500dp</dimen>
 </resources>

@@ -18,4 +18,6 @@
     <dimen name="card_margin_right">10dp</dimen>
     <dimen name="card_margin_bottom">2dp</dimen>
     <dimen name="card_margin_top">2dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="item_detail_max_image_height">260dp</dimen>
 </resources>

@@ -1,4 +1,4 @@
-package com.arman.horus.tabs;
+package com.arman.horus.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,15 +7,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.arman.horus.R;
 import com.arman.horus.adapters.CardItemsAdapter;
+import com.arman.horus.listeners.OnCardClickListener;
 import com.arman.horus.models.CardItem;
 
 import java.util.List;
 
-public class BoardTab extends Fragment {
+public class BoardTabFragment extends Fragment {
 
     private View mView;
 
@@ -36,7 +36,7 @@ public class BoardTab extends Fragment {
 
         placesRecyclerView.setLayoutManager(layoutManager);
         List<CardItem> cardItems = CardItem.generateItems();
-        RecyclerView.Adapter cardsAdapter = new CardItemsAdapter(cardItems, new OnCardClickListener());
+        RecyclerView.Adapter cardsAdapter = new CardItemsAdapter(cardItems, new OnCardClickListener("place", getContext()));
         placesRecyclerView.setAdapter(cardsAdapter);
     }
 
@@ -49,16 +49,8 @@ public class BoardTab extends Fragment {
 
         tripsRecyclerView.setLayoutManager(layoutManager);
         List<CardItem> cardItems = CardItem.generateItems();
-        RecyclerView.Adapter cardsAdapter = new CardItemsAdapter(cardItems, new OnCardClickListener());
+        RecyclerView.Adapter cardsAdapter = new CardItemsAdapter(cardItems, new OnCardClickListener("trip", getContext()));
         tripsRecyclerView.setAdapter(cardsAdapter);
     }
 
-    public class OnCardClickListener implements CardItemsAdapter.OnItemClickListener {
-
-        @Override
-        public void onItemClick(CardItem item) {
-            Toast.makeText(getContext(), item.getTitle(), Toast.LENGTH_LONG).show();
-            // TODO: create a new activity passing card type(event or trips)
-        }
-    }
 }

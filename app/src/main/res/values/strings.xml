@@ -9,4 +9,5 @@
     <string name="card_with_no_title">Untiteled</string>
     <string name="card_label">Explore</string>
     <string name="card_content_description">item card content</string>
+    <string name="title_activity_item_detail2">Item detail page</string>
 </resources>
