@@ -11,7 +11,7 @@ import com.arman.horus.models.TripDetail;
 
 public class TripDetailActivity extends AppCompatActivity {
 
-    public static final String ID = "id";
+    public static final String ID = "trip.id";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +31,19 @@ public class TripDetailActivity extends AppCompatActivity {
         // set title
         getSupportActionBar().setTitle(tripDetail.title);
         // set image
-        ImageView imageView = (ImageView) findViewById(R.id.item_detail_image);
+        ImageView imageView = (ImageView) findViewById(R.id.trip_detail_image);
         imageView.setImageResource(tripDetail.images);
+
+        // set 'from' address
+        TextView fromAddressView = (TextView) findViewById(R.id.trip_detail_from);
+        fromAddressView.setText(tripDetail.from);
+
+        // set 'target' address
+        TextView targetAddressView = (TextView) findViewById(R.id.trip_detail_target);
+        targetAddressView.setText(tripDetail.target);
+
         // set description
-        TextView descriptionView = (TextView) findViewById(R.id.item_detail_description);
+        TextView descriptionView = (TextView) findViewById(R.id.trip_detail_description);
         descriptionView.setText(tripDetail.description);
     }
 

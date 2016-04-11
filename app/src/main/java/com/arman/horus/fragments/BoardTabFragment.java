@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.arman.horus.R;
 import com.arman.horus.adapters.CardItemsAdapter;
+import com.arman.horus.listeners.OnPlaceCardClickListener;
 import com.arman.horus.listeners.OnTripCardClickListener;
 import com.arman.horus.models.CardItem;
 
@@ -35,9 +36,8 @@ public class BoardTabFragment extends Fragment {
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
 
         placesRecyclerView.setLayoutManager(layoutManager);
-        List<CardItem> cardItems = CardItem.generateItems();
-        //TODO: Change to OnPlaceCardClickListener(...) function
-        RecyclerView.Adapter cardsAdapter = new CardItemsAdapter(cardItems, new OnTripCardClickListener(getContext()));
+        List<CardItem> cardItems = CardItem.generatePlaces();
+        RecyclerView.Adapter cardsAdapter = new CardItemsAdapter(cardItems, new OnPlaceCardClickListener(getContext()));
         placesRecyclerView.setAdapter(cardsAdapter);
     }
 
@@ -49,7 +49,7 @@ public class BoardTabFragment extends Fragment {
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
 
         tripsRecyclerView.setLayoutManager(layoutManager);
-        List<CardItem> cardItems = CardItem.generateItems();
+        List<CardItem> cardItems = CardItem.generateTrips();
         RecyclerView.Adapter cardsAdapter = new CardItemsAdapter(cardItems, new OnTripCardClickListener(getContext()));
         tripsRecyclerView.setAdapter(cardsAdapter);
     }

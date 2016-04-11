@@ -3,7 +3,7 @@ package com.arman.horus.listeners;
 import android.content.Context;
 import android.content.Intent;
 
-import com.arman.horus.activities.TripDetailActivity;
+import com.arman.horus.activities.PlaceDetailActivity;
 import com.arman.horus.adapters.CardItemsAdapter;
 import com.arman.horus.models.CardItem;
 
@@ -20,7 +20,8 @@ public class OnPlaceCardClickListener implements CardItemsAdapter.OnItemClickLis
 
     @Override
     public void onItemClick(CardItem item) {
-        //TODO: Implement the function
-        throw new UnsupportedOperationException("Implement onItemClick(CardItem item) function");
+        Intent intent = new Intent(activity, PlaceDetailActivity.class);
+        intent.putExtra(PlaceDetailActivity.ID, item.getId());
+        activity.startActivity(intent);
     }
 }
