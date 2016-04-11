@@ -100,4 +100,12 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="item_detail_section">
+        <item name="android:gravity">center_vertical|start</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:layout_height">@dimen/item_detail_section_height</item>
+        <item name="android:textSize">@dimen/item_detail_section_text_size</item>
+        <item name="android:drawablePadding">3dp</item>
+    </style>
+
 </resources>

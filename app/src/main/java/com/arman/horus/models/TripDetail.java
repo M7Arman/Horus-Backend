@@ -2,9 +2,6 @@ package com.arman.horus.models;
 
 import com.arman.horus.R;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by arman on 4/2/16.
  */
@@ -30,7 +27,13 @@ public class TripDetail {
     }
 
     public static TripDetail dummyTripDetail() {
-        String description = "An indefinite article indicates that its noun is not a particular one (or ones) identifiable to the listener. It may be something that the speaker is mentioning for the first time, or its precise identity may be irrelevant or hypothetical, or the speaker may be making a general statement about any such thing. English uses a/an, from the Old English forms of the number 'one', as its primary indefinite article. The form an is used before words that begin with a vowel sound (even if spelled with an initial consonant, as in an hour), and a before words that begin with a consonant sound (even if spelled with a vowel, as in a European). In many languages, the form of the article may vary according to the gender, number, or case of its noun. In some languages the article may be the only indication of the case. Many languages do not use articles at all, and may use other ways of indicating old versus new information, such as topic–comment constructions.";
+        String description = "Հայերեն (ավանդական՝ հայերէն), հնդեվրոպական լեզվաընտանիքի առանձին ճյուղ հանդիսացող լեզու։ Հայաստանի և Լեռնային Ղարաբաղի Հանրապետության[Ն 1] պետական լեզուն է։ Իր շուրջ հինգհազարամյա գոյության ընթացքում հայերենը շփվել է տարբեր ժողովուրդների, բազմաթիվ լեզուների հետ, սակայն պահպանել է իր ինքնուրույնությունը, քերականական կառուցվածքի և բառապաշարի (բառային ֆոնդի) ինքնատիպությունը։\n" +
+                "\n" +
+                "Հայոց լեզվով ստեղծվել է մեծ գրականություն։ Գրաբարով է ավանդված հայ հին պատմագրությունը, գիտափիլիսոփայական, մաթեմատիկական, բժշկագիտական, աստվածաբանական-դավանաբանական գրականությունը։ Միջին գրական հայերենով են մեզ հասել միջնադարյան հայ քնարերգության գլուխգործոցները, բժշկագիտական, իրավագիտական նշանակալի աշխատություններ։ Գրական նոր հայերենի արևելահայերեն ու արևմտահայերեն գրական տարբերակներով ստեղծվել է գեղարվեստական, հրապարակախոսական ու գիտական բազմատիպ ու բազմաբնույթ հարուստ գրականություն։\n" +
+                "\n" +
+                "Հայերենը լայնորեն օգտագործվում է պատմական Հայաստանի տարածքներում (Ջավախք, Պարսկահայք, Արևմտյան Հայաստանի որոշ շրջաններ) և Հայկական սփյուռքում։ Առավել կիրառական է Եվրոպայում (Ֆրանսիա, Գերմանիա, Իսպանիա, Բելգիա, Շվեյցարիա, Իտալիա, Հունաստան, Բուլղարիա և այլն), Մերձավոր Արևելքում (հիմնականում Իրան, Սիրիա, Լիբանան, Իրաք, Պաղեստին, Իսրայել, Եգիպտոս, մասամբ՝ Թուրքիա) և նախկին ԽՍՀՄ հանրապետություններում՝ Ռուսաստանի Դաշնությունում (Հարավային դաշնային տարածաշրջան, Մոսկվա և խոշոր քաղաքներ), Վրաստանում, Ուկրաինայում և այլուր։\n" +
+                "\n" +
+                "Արևմտյան կիսագնդում հայերեն են խոսում ԱՄՆ-ում, Կանադայում, Լատինական Ամերիկայում (Ուրուգվայ, Արգենտինա, Բրազիլիա)։ Հայկական համայնքներ կան նաև Աֆրիկայում, Ավստրալիայում և այլուր։";
         return new TripDetail(R.drawable.trip1, "Trip to Maymekh", description, "15:32", "Tigran Mets 15/34", "Maymekh top", "item_1");
     }
 }

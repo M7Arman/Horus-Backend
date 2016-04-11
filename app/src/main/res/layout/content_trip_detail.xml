@@ -4,35 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".activities.TripDetailActivity"
-    tools:showIn="@layout/activity_trip_detail">
+    tools:showIn="@layout/activity_trip_detail"
+    android:background="@color/colorBg">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ViewFlipper
-            android:id="@+id/item_detail_flipper"
+        <ImageView
+            android:id="@+id/item_detail_image"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/item_detail_max_image_height"
-            android:animateLayoutChanges="true">
+            android:layout_height="@dimen/item_detail_image_height"
+            android:src="@drawable/trip1"
+            android:scaleType="centerCrop" />
 
-            <ImageView
-                android:id="@+id/item_detail_image"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/trip1"
-                android:scaleType="fitStart"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        </ViewFlipper>
+            <TextView
+                android:id="@+id/item_detail_from"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="Mt Maymekh, Armenia"
+                android:layout_marginRight="1dp"
+                style="@style/item_detail_section"
+                android:drawableLeft="@drawable/ic_start" />
+
+            <TextView
+                android:id="@+id/item_detail_target"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="Mt Maymekh, Armenia"
+                style="@style/item_detail_section"
+                android:drawableLeft="@drawable/ic_target" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/item_detail_date"
+            android:layout_width="match_parent"
+            android:text="Monday, September 13 - 08:00"
+            android:layout_marginTop="1dp"
+            style="@style/item_detail_section"
+            android:drawableLeft="@drawable/ic_calendar" />
 
         <TextView
             android:id="@+id/item_detail_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            style="@style/item_detail_section"
+            android:typeface="serif"
+            android:padding="5dp"
             android:text="@string/card_content_description"/>
     </LinearLayout>
 
