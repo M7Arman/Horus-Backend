@@ -77,7 +77,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>arman.horus.Main</mainClass>
+                    <mainClass>arman.horus.HorusApp</mainClass>
                 </configuration>
             </plugin>
         </plugins>

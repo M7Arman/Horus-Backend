@@ -16,28 +16,13 @@ import org.glassfish.jersey.moxy.json.MoxyJsonConfig;
  *
  */
 public class HorusApp {
-    // Base URI the Grizzly HTTP server will listen on
+
     public static final String BASE_URI = "http://localhost:8080/myapp/";
-    public static final String RESOURCES_PACKAGE = "arman.horus.api.resources";
-
-    /**
-     * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
-     * @return Grizzly HTTP server.
-     */
-    public static HttpServer startServer() {
-        // create a resource config that scans for JAX-RS resources and providers
-        // in com.example package
-        final ResourceConfig rc = new ResourceConfig()
-                .packages(RESOURCES_PACKAGE)
-                .register(createMoxyJsonResolver());
-
-        // create and start a new instance of grizzly http server
-        // exposing the Jersey application at BASE_URI
-        return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc);
-    }
+    public static final String RESOURCES_PACKAGE = "arman.horus.apis";
 
     /**
      * Main method.
+     *
      * @param args
      * @throws IOException
      */
@@ -48,7 +33,21 @@ public class HorusApp {
         System.in.read();
         server.shutdownNow();
     }
-    
+
+    /**
+     * Starts Grizzly HTTP server exposing JAX-RS resources defined in this
+     * application.
+     *
+     * @return Grizzly HTTP server.
+     */
+    public static HttpServer startServer() {
+        final ResourceConfig rc = new ResourceConfig()
+                .packages(RESOURCES_PACKAGE)
+                .register(createMoxyJsonResolver());
+
+        return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc);
+    }
+
     public static ContextResolver<MoxyJsonConfig> createMoxyJsonResolver() {
         final MoxyJsonConfig moxyJsonConfig = new MoxyJsonConfig();
         Map<String, String> namespacePrefixMapper = new HashMap<>(1);
@@ -57,4 +56,3 @@ public class HorusApp {
         return moxyJsonConfig.resolver();
     }
 }
-

@@ -32,12 +32,16 @@ public class MongoDBClient implements IDbClient {
     private final static int POPULARS_COUNT = 10;
     private final MongoDatabase db;
     private static final ObjectMapper MAPPER = new ObjectMapper();
+    
+    public static MongoDBClient getInstance() {
+        return new MongoDBClient();
+    }
 
-    public MongoDBClient() {
+    private MongoDBClient() {
         this("localhost", 27017);
     }
 
-    public MongoDBClient(String host, int port) {
+    private MongoDBClient(String host, int port) {
         MongoClient mongoClient = new MongoClient(host, port);
         db = mongoClient.getDatabase(DB_NAME);
     }

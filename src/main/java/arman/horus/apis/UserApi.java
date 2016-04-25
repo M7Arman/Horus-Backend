@@ -8,7 +8,7 @@ import javax.ws.rs.core.MediaType;
 
 @Path("user")
 public class UserApi {
-
+    
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public User getUser() {
