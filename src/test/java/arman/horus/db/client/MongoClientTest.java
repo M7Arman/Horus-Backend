@@ -19,7 +19,7 @@ public class MongoClientTest {
     @BeforeClass
     public void setUp() {
         mapper = new ObjectMapper();
-        client = new MongoDBClient();
+        client = MongoDBClient.getInstance();
     }
 
     @Test
