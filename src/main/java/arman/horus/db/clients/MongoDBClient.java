@@ -32,17 +32,22 @@ public class MongoDBClient implements IDbClient {
     private final static int POPULARS_COUNT = 10;
     private final MongoDatabase db;
     private static final ObjectMapper MAPPER = new ObjectMapper();
+    private static MongoDBClient instance = null;
     
     public static MongoDBClient getInstance() {
-        return new MongoDBClient();
+        final String dbHost = System.getProperty("db_host", "localhost");
+        if(instance == null)
+            instance = new MongoDBClient(dbHost);
+        return instance;
     }
 
     private MongoDBClient() {
-        this("localhost", 27017);
+        MongoClient mongoClient = new MongoClient();
+        db = mongoClient.getDatabase(DB_NAME);
     }
 
-    private MongoDBClient(String host, int port) {
-        MongoClient mongoClient = new MongoClient(host, port);
+    private MongoDBClient(String host) {
+        MongoClient mongoClient = new MongoClient(host);
         db = mongoClient.getDatabase(DB_NAME);
     }
 
