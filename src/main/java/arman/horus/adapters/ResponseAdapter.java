@@ -1,5 +1,6 @@
 package arman.horus.adapters;
 
+import arman.horus.db.constants.API;
 import arman.horus.db.constants.DB;
 import com.mongodb.BasicDBList;
 import com.mongodb.client.FindIterable;
@@ -21,6 +22,7 @@ public class ResponseAdapter {
             while (it.hasNext()) {
                 Document next = it.next();
                 updateImg(next);
+                updateId(next);
                 list.add(next);
             }
         } catch (Exception e) {
@@ -29,14 +31,20 @@ public class ResponseAdapter {
         return JSON.serialize(list);
     }
 
-    private static void updateImg(Document next) {
-        List<String> images = next.get(DB.Key.IMAGES, ArrayList.class);
+    private static void updateImg(Document doc) {
+        List<String> images = doc.get(DB.Key.IMAGES, ArrayList.class);
         if(images == null || images.isEmpty()) {
-            next.remove(DB.Key.IMAGES);
+            doc.remove(DB.Key.IMAGES);
             return;
         }
-        next.remove(DB.Key.IMAGES);
-        next.append("image", images.get(0));
+        doc.remove(DB.Key.IMAGES);
+        doc.append(API.Key.IMAGE, images.get(0));
+    }
+
+    private static void updateId(Document doc) {
+        String id = doc.getObjectId(DB.Key.ID).toString();
+        doc.remove(DB.Key.ID);
+        doc.append(API.Key.ID, id);
     }
     
 }
