@@ -30,11 +30,11 @@ public class ResponseAdapter {
     }
 
     private static void updateImg(Document next) {
-        if(next.get(DB.Key.IMAGES) == null) {
+        List<String> images = next.get(DB.Key.IMAGES, ArrayList.class);
+        if(images == null || images.isEmpty()) {
             next.remove(DB.Key.IMAGES);
             return;
         }
-        List<String> images = next.get(DB.Key.IMAGES, ArrayList.class);
         next.remove(DB.Key.IMAGES);
         next.append("image", images.get(0));
     }
