@@ -8,8 +8,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class Place {
 
-    @JsonProperty(value = "name", required = true)
-    private String name;
+    @JsonProperty(value = "title", required = true)
+    private String title;
     @JsonProperty(value = "images", required = true)
     private String[] images;
     @JsonProperty(value = "description", required = true)
@@ -19,12 +19,12 @@ public class Place {
     @JsonProperty(value = "rank", required = true)
     private int rank;
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
