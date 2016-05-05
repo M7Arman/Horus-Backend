@@ -17,7 +17,7 @@ import org.glassfish.jersey.moxy.json.MoxyJsonConfig;
  */
 public class HorusApp {
 
-    public static final String BASE_URI = "http://localhost:8080/myapp/";
+    public static final String BASE_URI = "http://0.0.0.0:8080/myapp/";
     public static final String RESOURCES_PACKAGE = "arman.horus.apis";
 
     /**

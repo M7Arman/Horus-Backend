@@ -18,6 +18,7 @@ public class DB {
         public final static String NAME = "name";
         public final static String TIME = "time";
         public final static String CREATED_TIME = "created_time";
+        public final static String IMAGES = "images";
     }
     
     public static class KeysToExclude {

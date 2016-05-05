@@ -1,5 +1,6 @@
 package arman.horus.db.clients;
 
+import arman.horus.adapters.ResponseAdapter;
 import arman.horus.db.constants.DB;
 import arman.horus.db.interfaces.IDbClient;
 import arman.horus.models.Place;
@@ -70,7 +71,7 @@ public class MongoDBClient implements IDbClient {
         MongoCollection<Document> col = db.getCollection(DB.Collection.TRIPS);
         FindIterable<Document> popularItems = getPopularItems(col);
         Bson keysToExclude = exclude(DB.KeysToExclude.TRIPS);
-        return toJsonArray(popularItems.projection(keysToExclude));
+        return ResponseAdapter.forItems(popularItems.projection(keysToExclude));
     }
 
     @Override
