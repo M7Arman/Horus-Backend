@@ -56,14 +56,14 @@ public class MongoDBClient implements IDbClient {
     public String getAllTrips() {
         MongoCollection<Document> col = db.getCollection(DB.Collection.TRIPS);
         Bson keysToExclude = exclude(DB.KeysToExclude.TRIPS);
-        return toJsonArray(col.find().projection(keysToExclude));
+        return ResponseAdapter.forItems(col.find().projection(keysToExclude));
     }
 
     @Override
     public String getAllPlaces() {
         MongoCollection<Document> col = db.getCollection(DB.Collection.PLACES);
         Bson keysToExclude = exclude(DB.KeysToExclude.PLACES);
-        return toJsonArray(col.find().projection(keysToExclude));
+        return ResponseAdapter.forItems(col.find().projection(keysToExclude));
     }
 
     @Override
@@ -79,7 +79,7 @@ public class MongoDBClient implements IDbClient {
         MongoCollection<Document> collection = db.getCollection(DB.Collection.PLACES);
         FindIterable<Document> popularItems = getPopularItems(collection);
         Bson keysToExclude = exclude(DB.KeysToExclude.PLACES);
-        return toJsonArray(popularItems.projection(keysToExclude));
+        return ResponseAdapter.forItems(popularItems.projection(keysToExclude));
     }
 
     @Override
@@ -123,18 +123,6 @@ public class MongoDBClient implements IDbClient {
     private Document getDocumentById(MongoCollection<Document> col, String id) {
         Bson filter = eq(DB.Key.ID, new ObjectId(id));
         return col.find(filter).first();
-    }
-
-    private String toJsonArray(FindIterable<Document> documents) {
-        BasicDBList list;
-        try (MongoCursor<Document> iterator = documents.iterator()) {
-            list = new BasicDBList();
-            while (iterator.hasNext()) {
-                Document next = iterator.next();
-                list.add(next);
-            }
-        }
-        return JSON.serialize(list);
     }
 
     // to test
