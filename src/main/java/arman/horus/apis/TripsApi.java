@@ -19,27 +19,25 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 @Path("trips")
+@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
 public class TripsApi {
 
     private static final String IMAGES_PATH = "src/main/resources/images/trips/";
     private static final IDbClient dbClient = MongoDBClient.getInstance();
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
     public String getTrips() {
         return dbClient.getAllTrips();
     }
 
     @GET
     @Path("popular")
-    @Produces(MediaType.APPLICATION_JSON)
     public String getPopularTrips() {
         return dbClient.getPopularTrips();
     }
 
     @GET
     @Path("{tripId}")
-    @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.TEXT_PLAIN)
     public String getTrip(@PathParam("tripId") String tripId) {
         return dbClient.getTripDetail(tripId);
