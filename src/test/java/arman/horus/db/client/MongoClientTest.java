@@ -52,7 +52,7 @@ public class MongoClientTest {
 
     @Test
     public void getTripDetailTest() {
-        final String tripId = "570f9df7002ed036eba0fa19";
+        final String tripId = "570d41400137545d30583394";
         final String trip = client.getTripDetail(tripId);
         System.out.println("\ntrip: \n" + trip);
         Assert.assertNotNull(trip, "Failed to get trip with " + tripId + " id");

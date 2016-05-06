@@ -86,7 +86,7 @@ public class MongoDBClient implements IDbClient {
     public String getTripDetail(String id) {
         MongoCollection<Document> col = db.getCollection(DB.Collection.TRIPS);
         Document doc = getDocumentById(col, id);
-        return doc.toJson();
+        return ResponseAdapter.forTrip(doc);
     }
 
     @Override

@@ -23,6 +23,6 @@ public class DB {
     
     public static class KeysToExclude {
         public final static String[] PLACES = {"description", "address", "rank"};
-        public final static String[] TRIPS = {"description", "from", "target", "rank"};
+        public final static String[] TRIPS = {"description", "from", "target", "rank", "time"};
     }
 }

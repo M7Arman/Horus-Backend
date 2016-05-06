@@ -7,6 +7,7 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.util.JSON;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.bson.Document;
 
@@ -15,7 +16,7 @@ import org.bson.Document;
  * @author arman
  */
 public class ResponseAdapter {
-    
+
     public static String forItems(FindIterable<Document> input) {
         BasicDBList list = new BasicDBList();
         try (MongoCursor<Document> it = input.iterator()) {
@@ -31,9 +32,15 @@ public class ResponseAdapter {
         return JSON.serialize(list);
     }
 
+    public static String forTrip(Document doc) {
+        updateId(doc);
+        updateTime(doc);
+        return doc.toJson();
+    }
+
     private static void updateImg(Document doc) {
         List<String> images = doc.get(DB.Key.IMAGES, ArrayList.class);
-        if(images == null || images.isEmpty()) {
+        if (images == null || images.isEmpty()) {
             doc.remove(DB.Key.IMAGES);
             return;
         }
@@ -46,5 +53,10 @@ public class ResponseAdapter {
         doc.remove(DB.Key.ID);
         doc.append(API.Key.ID, id);
     }
-    
+
+    private static void updateTime(Document doc) {
+        Date date = doc.getDate(DB.Key.TIME);
+        doc.remove(DB.Key.TIME);
+        doc.append(API.Key.TIME, date.toString());
+    }
 }
