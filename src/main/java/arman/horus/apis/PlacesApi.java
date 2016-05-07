@@ -39,7 +39,7 @@ public class PlacesApi {
     @Path("{placeId}")
     @Consumes(MediaType.TEXT_PLAIN)
     public String getTrip(@PathParam("placeId") String placeId) {
-        return dbClient.getTripDetail(placeId);
+        return dbClient.getPlaceDetail(placeId);
     }
 
     @GET
