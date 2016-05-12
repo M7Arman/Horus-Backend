@@ -49,7 +49,7 @@ public class TripsApi {
     @Consumes(MediaType.TEXT_PLAIN)
     public String deleteTrip(@PathParam("tripId") String id) {
         long deletedTripsCount = dbClient.deleteTrip(id);
-        String response = "\"message\": \"%s\"";
+        String response = "{\"message\": \"%s\"}";
         if (deletedTripsCount == 0) {
             return String.format(response, "There is no trip with " + id + " ID");
         }

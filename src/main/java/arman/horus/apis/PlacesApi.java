@@ -48,7 +48,7 @@ public class PlacesApi {
     @Consumes(MediaType.TEXT_PLAIN)
     public String deletePlace(@PathParam("placeId") String id) {
         long deletedPlacesCount = dbClient.deletePlace(id);
-        String response = "\"message\": \"%s\"";
+        String response = "{\"message\": \"%s\"}";
         if (deletedPlacesCount == 0) {
             return String.format(response, "There is no place with " + id + " ID");
         }
