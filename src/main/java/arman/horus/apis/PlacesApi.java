@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.activation.MimetypesFileTypeMap;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -38,14 +39,26 @@ public class PlacesApi {
     @GET
     @Path("{placeId}")
     @Consumes(MediaType.TEXT_PLAIN)
-    public String getTrip(@PathParam("placeId") String placeId) {
+    public String getPlace(@PathParam("placeId") String placeId) {
         return dbClient.getPlaceDetail(placeId);
+    }
+
+    @DELETE
+    @Path("{placeId}")
+    @Consumes(MediaType.TEXT_PLAIN)
+    public String deletePlace(@PathParam("placeId") String id) {
+        long deletedPlacesCount = dbClient.deletePlace(id);
+        String response = "\"message\": \"%s\"";
+        if (deletedPlacesCount == 0) {
+            return String.format(response, "There is no place with " + id + " ID");
+        }
+        return String.format(response, "The place with " + id + " ID was deleted");
     }
 
     @GET
     @Path("image/{image}")
     @Consumes(MediaType.TEXT_PLAIN)
-    public Response getTripImage(@PathParam("image") String imageName) {
+    public Response getPlaceImage(@PathParam("image") String imageName) {
         File image = new File(IMAGES_PATH + imageName);
         if (image.exists()) {
             String mt = new MimetypesFileTypeMap().getContentType(image);
@@ -60,7 +73,7 @@ public class PlacesApi {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response createTrip(Place place) {
+    public Response createPlace(Place place) {
         try {
             dbClient.createPlace(place);
             return Response.ok().build();

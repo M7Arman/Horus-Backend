@@ -13,15 +13,13 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
-import com.mongodb.BasicDBList;
-import com.mongodb.client.MongoCursor;
-import com.mongodb.util.JSON;
 import static com.mongodb.client.model.Filters.eq;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 import static com.mongodb.client.model.Filters.exists;
 import static com.mongodb.client.model.Sorts.descending;
 import static com.mongodb.client.model.Projections.exclude;
+import com.mongodb.client.result.DeleteResult;
 
 /**
  *
@@ -34,11 +32,12 @@ public class MongoDBClient implements IDbClient {
     private final MongoDatabase db;
     private static final ObjectMapper MAPPER = new ObjectMapper();
     private static MongoDBClient instance = null;
-    
+
     public static MongoDBClient getInstance() {
         final String dbHost = System.getProperty("db_host", "localhost");
-        if(instance == null)
+        if (instance == null) {
             instance = new MongoDBClient(dbHost);
+        }
         return instance;
     }
 
@@ -94,6 +93,22 @@ public class MongoDBClient implements IDbClient {
         MongoCollection<Document> col = db.getCollection(DB.Collection.PLACES);
         Document doc = getDocumentById(col, id);
         return doc.toJson();
+    }
+
+    @Override
+    public long deleteTrip(String id) {
+        MongoCollection<Document> col = db.getCollection(DB.Collection.TRIPS);
+        Bson filter = eq(DB.Key.ID, new ObjectId(id));
+        DeleteResult result = col.deleteOne(filter);
+        return result.getDeletedCount();
+    }
+
+    @Override
+    public long deletePlace(String id) {
+        MongoCollection<Document> col = db.getCollection(DB.Collection.PLACES);
+        Bson filter = eq(DB.Key.ID, new ObjectId(id));
+        DeleteResult result = col.deleteOne(filter);
+        return result.getDeletedCount();
     }
 
     @Override

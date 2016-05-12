@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.activation.MimetypesFileTypeMap;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -41,6 +42,18 @@ public class TripsApi {
     @Consumes(MediaType.TEXT_PLAIN)
     public String getTrip(@PathParam("tripId") String tripId) {
         return dbClient.getTripDetail(tripId);
+    }
+
+    @DELETE
+    @Path("{tripId}")
+    @Consumes(MediaType.TEXT_PLAIN)
+    public String deleteTrip(@PathParam("tripId") String id) {
+        long deletedTripsCount = dbClient.deleteTrip(id);
+        String response = "\"message\": \"%s\"";
+        if (deletedTripsCount == 0) {
+            return String.format(response, "There is no trip with " + id + " ID");
+        }
+        return String.format(response, "The trip with " + id + " ID was deleted");
     }
 
     @GET
