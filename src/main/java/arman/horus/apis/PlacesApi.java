@@ -37,6 +37,12 @@ public class PlacesApi {
     }
 
     @GET
+    @Path("locations")
+    public String getTripsLocations() {
+        return dbClient.getPlacesLocations();
+    }
+
+    @GET
     @Path("{placeId}")
     @Consumes(MediaType.TEXT_PLAIN)
     public String getPlace(@PathParam("placeId") String placeId) {

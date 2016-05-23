@@ -16,10 +16,11 @@ import org.bson.Document;
 import static com.mongodb.client.model.Filters.eq;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
+import com.mongodb.client.result.DeleteResult;
 import static com.mongodb.client.model.Filters.exists;
 import static com.mongodb.client.model.Sorts.descending;
 import static com.mongodb.client.model.Projections.exclude;
-import com.mongodb.client.result.DeleteResult;
+import static com.mongodb.client.model.Projections.include;
 
 /**
  *
@@ -71,6 +72,22 @@ public class MongoDBClient implements IDbClient {
         FindIterable<Document> popularItems = getPopularItems(col);
         Bson keysToExclude = exclude(DB.KeysToExclude.TRIPS);
         return ResponseAdapter.forItems(popularItems.projection(keysToExclude));
+    }
+
+    @Override
+    public String getTripsLocations() {
+        MongoCollection<Document> col = db.getCollection(DB.Collection.TRIPS);
+        Bson keysToInclude = include(DB.Key.TARGET, DB.Key.TITLE);
+        FindIterable<Document> result = col.find().projection(keysToInclude);
+        return ResponseAdapter.forItems(result);
+    }
+
+    @Override
+    public String getPlacesLocations() {
+        MongoCollection<Document> col = db.getCollection(DB.Collection.PLACES);
+        Bson keysToInclude = include(DB.Key.ADDRESS, DB.Key.TITLE);
+        FindIterable<Document> result = col.find().projection(keysToInclude);
+        return ResponseAdapter.forItems(result);
     }
 
     @Override

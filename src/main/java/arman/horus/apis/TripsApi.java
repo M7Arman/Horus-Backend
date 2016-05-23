@@ -38,6 +38,12 @@ public class TripsApi {
     }
 
     @GET
+    @Path("locations")
+    public String getTripsLocations() {
+        return dbClient.getTripsLocations();
+    }
+
+    @GET
     @Path("{tripId}")
     @Consumes(MediaType.TEXT_PLAIN)
     public String getTrip(@PathParam("tripId") String tripId) {

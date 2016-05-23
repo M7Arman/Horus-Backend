@@ -19,6 +19,8 @@ public class DB {
         public final static String TIME = "time";
         public final static String CREATED_TIME = "created_time";
         public final static String IMAGES = "images";
+        public final static String TARGET = "target";
+        public final static String ADDRESS = "address";
     }
     
     public static class KeysToExclude {

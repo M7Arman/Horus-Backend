@@ -10,24 +10,28 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  */
 public interface IDbClient {
 
-    public String getAllTrips();
+    String getAllTrips();
 
-    public String getAllPlaces();
+    String getAllPlaces();
 
-    public String getPopularTrips();
+    String getPopularTrips();
 
-    public String getPopularPlaces();
+    String getPopularPlaces();
 
-    public String getTripDetail(String id);
+    String getTripDetail(String id);
 
-    public String getPlaceDetail(String id);
+    String getPlaceDetail(String id);
 
-    public void createTrip(Trip trip) throws JsonProcessingException;
+    void createTrip(Trip trip) throws JsonProcessingException;
 
-    public void createPlace(Place place) throws JsonProcessingException;
+    void createPlace(Place place) throws JsonProcessingException;
 
-    public long deleteTrip(String id);
+    long deleteTrip(String id);
 
-    public long deletePlace(String id);
+    long deletePlace(String id);
+
+    String getTripsLocations();
+
+    String getPlacesLocations();
 
 }
