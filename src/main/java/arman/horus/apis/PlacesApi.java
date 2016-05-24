@@ -81,6 +81,7 @@ public class PlacesApi {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createPlace(Place place) {
         try {
+            System.out.println("[PLACE ADDRESS] " + place.getAddress());
             dbClient.createPlace(place);
             return Response.ok().build();
         } catch (JsonProcessingException ex) {
