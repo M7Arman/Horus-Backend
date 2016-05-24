@@ -9,26 +9,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Address {
 
     @JsonProperty(value = "display_name", required = true)
-    private String displayName;
+    public String displayName;
 
     @JsonProperty(value = "coord", required = true)
-    private double[] coord;
-
-    public String getDisplayName() {
-        return displayName;
-    }
-
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
-    public double[] getCoord() {
-        return coord;
-    }
-
-    public void setCoord(double[] coord) {
-        this.coord = coord;
-    }
+    public double[] coord;
 
     @Override
     public String toString() {
