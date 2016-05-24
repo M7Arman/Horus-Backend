@@ -81,7 +81,8 @@ public class PlacesApi {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createPlace(Place place) {
         try {
-            System.out.println("[PLACE ADDRESS] " + place.getAddress());
+            //TODO: this is a garbage. remove this !!!!
+            place.getAddress().displayName = place.getAddress().display_name;
             dbClient.createPlace(place);
             return Response.ok().build();
         } catch (JsonProcessingException ex) {

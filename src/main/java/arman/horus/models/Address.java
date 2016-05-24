@@ -10,6 +10,7 @@ public class Address {
 
     @JsonProperty(value = "display_name", required = true)
     public String displayName;
+    public String display_name;
 
     @JsonProperty(value = "coord", required = true)
     public double[] coord;
