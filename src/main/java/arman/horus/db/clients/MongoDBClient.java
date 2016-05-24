@@ -132,6 +132,7 @@ public class MongoDBClient implements IDbClient {
     public void createTrip(Trip trip) throws JsonProcessingException {
         MongoCollection<Document> col = db.getCollection(DB.Collection.TRIPS);
         String tripJson = MAPPER.writeValueAsString(trip);
+        System.out.println("[CREATE TRIP] " + tripJson);
         Document td = Document.parse(tripJson);
         col.insertOne(td);
     }
@@ -140,6 +141,7 @@ public class MongoDBClient implements IDbClient {
     public void createPlace(Place place) throws JsonProcessingException {
         MongoCollection<Document> col = db.getCollection(DB.Collection.PLACES);
         String placeJson = MAPPER.writeValueAsString(place);
+        System.out.println("[CREATE PLACE] " + placeJson);
         Document td = Document.parse(placeJson);
         col.insertOne(td);
     }
