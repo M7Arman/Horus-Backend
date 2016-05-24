@@ -37,6 +37,11 @@ public class ResponseAdapter {
         updateTime(doc);
         return doc.toJson();
     }
+    
+    public static String forPlace(Document doc) {
+        updateId(doc);
+        return doc.toJson();
+    }
 
     private static void updateImg(Document doc) {
         List<String> images = doc.get(DB.Key.IMAGES, ArrayList.class);

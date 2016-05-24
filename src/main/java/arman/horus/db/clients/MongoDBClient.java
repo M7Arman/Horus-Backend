@@ -109,7 +109,7 @@ public class MongoDBClient implements IDbClient {
     public String getPlaceDetail(String id) {
         MongoCollection<Document> col = db.getCollection(DB.Collection.PLACES);
         Document doc = getDocumentById(col, id);
-        return doc.toJson();
+        return ResponseAdapter.forPlace(doc);
     }
 
     @Override
