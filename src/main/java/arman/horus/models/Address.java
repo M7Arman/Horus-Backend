@@ -9,17 +9,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Address {
 
     @JsonProperty(value = "display_name", required = true)
-    private String display_name;
+    private String displayName;
 
     @JsonProperty(value = "coord", required = true)
     private double[] coord;
 
     public String getDisplayName() {
-        return display_name;
+        return displayName;
     }
 
     public void setDisplayName(String displayName) {
-        this.display_name = displayName;
+        this.displayName = displayName;
     }
 
     public double[] getCoord() {
@@ -33,7 +33,7 @@ public class Address {
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
-        str.append("[ ").append(display_name).append(": ");
+        str.append("[ ").append(displayName).append(": ");
         str.append("{ ")
                 .append("latitude: ").append(coord[0])
                 .append(", longitude: ").append(coord[1])
